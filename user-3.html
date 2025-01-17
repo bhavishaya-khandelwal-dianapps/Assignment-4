@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - 3</title>
+</head>
+<body>
+    <h1>User 3</h1>
+
+    <script>
+
+        let ws = new WebSocket("http://localhost:3001/user/3");
+
+        ws.onopen = () => {
+
+            // Join Room Number 1
+            ws.send(JSON.stringify({
+                "OPERATION" : "join", 
+                "ROOM_NUMBER" : 1, 
+                "MSG" : `User 3 joined room number 1`
+            }));
+
+            // Join Room Number 2
+            ws.send(JSON.stringify({
+                "OPERATION" : "join", 
+                "ROOM_NUMBER" : 2, 
+                "MSG" : `User 3 joined room number 2`
+            }));
+
+        };
+
+    </script>
+</body>
+</html>
